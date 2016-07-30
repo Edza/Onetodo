@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MasterModelStoreContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="DoneLists">
+      <EntityTypeMapping TypeName="MasterModel.DoneList">
+        <MappingFragment StoreEntitySet="DoneList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="Vitamins" ColumnName="Vitamins" />
+          <ScalarProperty Name="MoneySpent" ColumnName="MoneySpent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
