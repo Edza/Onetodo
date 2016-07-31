@@ -15,10 +15,10 @@ namespace Onetodo
     public partial class DoneList
     {
         public int Id { get; set; }
-        public System.DateTime Date { get; set; }
-        public decimal Dosage { get; set; }
-        public int Calories { get; set; }
-        public bool Vitamins { get; set; }
-        public int MoneySpent { get; set; }
+        public string Date { get; set; }
+        public string Dosage { get; set; }
+        public string Calories { get; set; }
+        public string Vitamins { get; set; }
+        public string MoneySpent { get; set; }
     }
 }

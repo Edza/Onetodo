@@ -5,18 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Onetodo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Todo" Height="350" Width="525">
     <ScrollViewer>
-        <ItemsControl x:Name="items" ItemsSource="{Binding .}" >
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="a"/>
-                        <TextBox Text="{Binding Date}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            
-        </ItemsControl>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save" Click="Button_Click"/>
+                <Button Content="Add" Click="Button_Click_1"/>
+            </StackPanel>
+            <ItemsControl Grid.Row="1" x:Name="items" ItemsSource="{Binding .}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="X" Click="Button_Click_2" CommandParameter="{Binding .}"/>
+                            <TextBox Text="{Binding Date}" />
+                            <TextBox Text="{Binding Dosage}" />
+                            <TextBox Text="{Binding Calories}" />
+                            <TextBox Text="{Binding Vitamins}" />
+                            <TextBox Text="{Binding MoneySpent}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </Grid>
     </ScrollViewer>
 </Window>

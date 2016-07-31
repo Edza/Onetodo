@@ -20,11 +20,46 @@ namespace Onetodo
     /// </summary>
     public partial class MainWindow : Window
     {
+        TodoEntities todo = new TodoEntities();
+
         public MainWindow()
         {
             InitializeComponent();
-            masterEntities me = new masterEntities();
-            items.DataContext = me.DoneLists.ToList();
+
+            var list = todo.DoneList.ToList();
+            items.DataContext = todo.DoneList.Local;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            todo.SaveChanges();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            todo.DoneList.Add(new DoneList()
+            {
+                Calories = "?",
+                Date = DateTime.Today.ToShortDateString(),
+                Dosage = "?",
+                MoneySpent = "?",
+                Vitamins = "?"
+            });
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (System.Windows.Forms.MessageBox.Show
+            ("Delete?", "Confirm",
+            System.Windows.Forms.MessageBoxButtons.YesNo,
+            System.Windows.Forms.MessageBoxIcon.Question)
+            == System.Windows.Forms.DialogResult.Yes)
+            {
+                Button b = sender as Button;
+                DoneList d = b.CommandParameter as DoneList;
+                todo.DoneList.Remove(d);
+            }
+            
         }
     }
 }
