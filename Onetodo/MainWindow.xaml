@@ -5,32 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Onetodo"
         mc:Ignorable="d"
-        Title="Todo" Height="350" Width="525">
-    <ScrollViewer>
-        <Grid>
+        Title="Todo" Height="350" Width="525" Icon="Fatcow-Farm-Fresh-Text-list-numbers.ico">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5 0 5 0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5 0 5 0"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
+    
+        <Grid Margin="10 10 10 30">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Save" Click="Button_Click"/>
-                <Button Content="Add" Click="Button_Click_1"/>
-            </StackPanel>
-            <ItemsControl Grid.Row="1" x:Name="items" ItemsSource="{Binding .}" >
+            <Border BorderThickness="0 0 0 1" BorderBrush="Black" Margin="8" Padding="8">
+                <StackPanel Orientation="Horizontal">
+                    <Button Width="50" Content="Save" Click="Button_Click"/>
+                    <Button Width="50" Content="Add" Click="Button_Click_1"/>
+                </StackPanel>
+            </Border>
+        <ScrollViewer x:Name="scroll" Grid.Row="1">
+            <ItemsControl Margin="15 0 0 0" x:Name="items" ItemsSource="{Binding .}" >
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="0 3 0 3">
                             <Button Content="X" Click="Button_Click_2" CommandParameter="{Binding .}"/>
                             <TextBox Text="{Binding Date}" />
-                            <TextBox Text="{Binding Dosage}" />
-                            <TextBox Text="{Binding Calories}" />
-                            <TextBox Text="{Binding Vitamins}" />
-                            <TextBox Text="{Binding MoneySpent}" />
+                            <TextBox Width="50" Text="{Binding Dosage}" />
+                            <TextBox Width="50" Text="{Binding Calories}" />
+                            <TextBlock Margin="0 5 0 0" Text="kcal"/>
+                            <TextBox Width="50" Text="{Binding Vitamins}" />
+                            <TextBox Width="50" Text="{Binding MoneySpent}" />
+                            <TextBlock Margin="0 5 0 0" Text="eur"/>
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
 
             </ItemsControl>
-        </Grid>
-    </ScrollViewer>
+        </ScrollViewer>
+    </Grid>
+    
 </Window>

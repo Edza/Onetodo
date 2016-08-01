@@ -28,6 +28,14 @@ namespace Onetodo
 
             var list = todo.DoneList.ToList();
             items.DataContext = todo.DoneList.Local;
+
+            Init();
+        }
+
+        private async void Init()
+        {
+            await Task.Delay(1000);
+            scroll.ScrollToEnd();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
